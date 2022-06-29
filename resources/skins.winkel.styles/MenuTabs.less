@@ -1,0 +1,84 @@
+@import '../../variables.less';
+@import 'mediawiki.mixins.less';
+
+/**
+ * Styling for namespace tabs (page, discussion) and views
+ * (read, edit, view history, watch and other actions)
+ */
+
+/* Namespaces and Views */
+.winkel-menu-tabs {
+	float: left;
+	margin-top: 0.5em;
+	
+	/* Navigation Labels */
+	h3 { display: none; }
+
+	ul {
+		float: left;
+		height: 100%;
+		list-style: none none;
+		margin: unit(-2 * @border-width-winkel, px) 0 0 -6px;
+		padding: 0;
+	}
+
+	/* Each item is an <li> around an <a> around a <span> */
+
+	li {
+		float: left;
+		line-height: 1.125em;
+		display: block;
+		height: 100%;
+		margin: 0 0 0 6px;
+		padding: 0;
+		background: #ddd;
+		white-space: nowrap;
+		border: @border-width-winkel solid @border-color-content;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                box-shadow: 4px 4px 4px #888;
+	}
+
+	li a {
+		display: block;
+		box-sizing: border-box;
+		height: 1.875em; /* = 1.5em / 0.8 */
+		font-size: 0.8em;
+		color: @color-link;
+		padding: 0.25em 0.5em 0;
+		cursor: pointer;
+	}
+
+	.tabFiller {
+		float:left;
+		height: 8px;
+		width: 100%;
+		margin-left: @border-width-winkel;
+		padding-right: 5px;
+		background-color: white;
+	}
+
+	.new {
+		a, a:visited {
+			color: @color-link-new;
+		}
+	}
+
+	.selected {
+		background: white;
+		padding-bottom: @border-width-winkel;
+		border-bottom: none;
+
+		a, a:visited {
+			color: @color-link-selected;
+			text-decoration: none;
+		}
+	}
+
+	.icon {
+		a {
+			background-position: right bottom;
+			background-repeat: no-repeat;
+		}
+	}
+}

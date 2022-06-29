@@ -1,0 +1,155 @@
+{
+	"name": "Winkel",
+	"author": [
+		"Mike Spivey", "..."
+	],
+	"url": "https://www.nowhere.com",
+	"descriptionmsg": "winkel-skin-desc",
+	"namemsg": "skinname-winkel",
+	"license-name": "None",
+	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.35.0"
+	},
+	"ValidSkinNames": {
+		"winkel": "Winkel"
+	},
+	"MessagesDirs": {
+		"Winkel": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"SkinWinkel": "includes/SkinWinkel.php",
+		"WinkelTemplate": "includes/WinkelTemplate.php"
+	},
+	"AutoloadNamespaces": {
+		"Winkel\\": "includes/"
+	},
+	"ConfigRegistry": {
+		"winkel": "GlobalVarConfig::newInstance"
+	},
+	"Hooks": {
+		"BeforePageDisplay": "Winkel\\Hooks::onBeforePageDisplay",
+		"GetPreferences": "Winkel\\Hooks::onGetPreferences",
+		"PreferencesFormPreSave": "Winkel\\Hooks::onPreferencesFormPreSave",
+		"SkinTemplateNavigation": "Winkel\\Hooks::onSkinTemplateNavigation",
+		"LocalUserCreated": "Winkel\\Hooks::onLocalUserCreated",
+		"OutputPageBodyAttributes": "Winkel\\Hooks::onOutputPageBodyAttributes"
+	},
+	"@note": "When modifying skins.winkel.styles definition, make sure the installer still works",
+	"ResourceModules": {
+		"skins.winkel.styles.legacy": {
+			"class": "ResourceLoaderSkinModule",
+			"features": [ "normalize", "elements", "content", "interface", "logo", "legacy" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"styles": [ "resources/skins.winkel.styles/skin-legacy.less" ]
+		},
+		"skins.winkel.styles": {
+			"class": "ResourceLoaderSkinModule",
+			"features": [ "normalize", "elements", "content", "interface", "legacy" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"styles": [ "resources/skins.winkel.styles/skin.less" ]
+		},
+		"skins.winkel.icons": {
+			"class": "ResourceLoaderImageModule",
+			"selector": "{name}",
+			"images": {
+				"#mw-sidebar-button:before": {
+					"file": {
+						"ltr": "resources/skins.winkel.icons/chevronHorizontal-ltr.svg",
+						"rtl": "resources/skins.winkel.icons/chevronHorizontal-rtl.svg"
+					}
+				},
+				"#mw-sidebar-checkbox:not( :checked ) ~ .mw-header #mw-sidebar-button:before": "resources/skins.winkel.icons/menu.svg"
+			}
+		},
+		"skins.winkel.styles.responsive": {
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"styles": [ "resources/skins.winkel.styles.responsive.less" ]
+		},
+		"skins.winkel.js": {
+			"packageFiles": [
+				"resources/skins.winkel.js/skin.js",
+				"resources/skins.winkel.js/sidebar.js",
+				"resources/skins.winkel.legacy.js/collapsibleTabs.js",
+				"resources/skins.winkel.legacy.js/winkel.js"
+			],
+			"dependencies": [
+				"mediawiki.util",
+				"mediawiki.page.ready"
+			]
+		},
+		"skins.winkel.legacy.js": {
+			"packageFiles": [
+				"resources/skins.winkel.legacy.js/skin-legacy.js",
+				"resources/skins.winkel.legacy.js/collapsibleTabs.js",
+				"resources/skins.winkel.legacy.js/winkel.js"
+			],
+			"dependencies": [
+				"mediawiki.util"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Winkel"
+	},
+	"ResourceModuleSkinStyles": {
+		"winkel": {
+			"jquery.tipsy": "skinStyles/jquery.tipsy.less",
+			"jquery.ui": [
+				"skinStyles/jquery.ui/jquery.ui.core.css",
+				"skinStyles/jquery.ui/jquery.ui.theme.css",
+				"skinStyles/jquery.ui/jquery.ui.accordion.css",
+				"skinStyles/jquery.ui/jquery.ui.autocomplete.css",
+				"skinStyles/jquery.ui/jquery.ui.button.css",
+				"skinStyles/jquery.ui/jquery.ui.datepicker.css",
+				"skinStyles/jquery.ui/jquery.ui.dialog.css",
+				"skinStyles/jquery.ui/jquery.ui.menu.css",
+				"skinStyles/jquery.ui/jquery.ui.progressbar.css",
+				"skinStyles/jquery.ui/jquery.ui.resizable.css",
+				"skinStyles/jquery.ui/jquery.ui.selectable.css",
+				"skinStyles/jquery.ui/jquery.ui.slider.css",
+				"skinStyles/jquery.ui/jquery.ui.tabs.css",
+				"skinStyles/jquery.ui/jquery.ui.tooltip.css"
+			],
+			"+mediawiki.action.view.redirectPage": "skinStyles/mediawiki.action.view.redirectPage.less",
+			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
+			"+oojs-ui-core.styles": "skinStyles/ooui.less",
+			"mediawiki.special": "skinStyles/mediawiki.special.less",
+			"+ext.relatedArticles.readMore": "skinStyles/ext.relatedArticles.readMore.less"
+		}
+	},
+	"config": {
+		"WinkelUseIconWatch": {
+			"value": true
+		},
+		"WinkelResponsive": {
+			"value": false
+		},
+		"WinkelShowSkinPreferences": {
+			"value": true,
+			"description": "@var boolean Show skin-specific user preferences on the Special:Preferences appearance tab when true and hide them otherwise."
+		},
+		"WinkelDefaultSidebarVisibleForAuthorisedUser": {
+			"value": true
+		},
+		"WinkelDefaultSidebarVisibleForAnonymousUser": {
+			"value": false
+		}
+	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+	"manifest_version": 2
+}

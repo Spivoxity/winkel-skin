@@ -1,0 +1,38 @@
+@import '../../variables.less';
+@import 'mediawiki.mixins.less';
+@import 'mediawiki.mixins.rotation.less';
+
+/* Watch/Unwatch Icon Styling */
+/* Only use icon if the menu item is not collapsed into the "More" dropdown
+ * (in which case it is inside `.winkel-menu-dropdown` instead of
+ * `.winkel-menu-tabs`). */
+.winkel-menu-tabs {
+	// `#ca-unwatch` & `#ca-watch` both carry `.mw-watchlink` as well.
+	@width-watchlink: unit( 28 / @font-size-tabs / @font-size-browser, em );
+	@height-watchlink: unit( 40 / @font-size-tabs / @font-size-browser, em );
+	@size-watchlink-icon: unit( 16 / @font-size-tabs / @font-size-browser, em );
+
+	.mw-watchlink.icon a {
+		width: @width-watchlink;
+		/* This hides the text but shows the background image */
+		display: block;
+		height: 0;
+		padding: 1.875em 0 0 0;
+		overflow: hidden;
+		margin: 0;
+		background-repeat: no-repeat;
+		background-position: 5px 60%;
+	}
+
+	#ca-unwatch.icon a {
+		background-image: url( images/unwatch-icon.svg );
+	}
+
+	#ca-unwatch.mw-watchlink-temp.icon a {
+		background-image: url( images/unwatch-temp-icon.svg );
+	}
+
+	#ca-watch.icon a {
+		background-image: url( images/watch-icon.svg );
+	}
+}

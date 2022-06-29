@@ -1,0 +1,138 @@
+@import '../../variables.less';
+@import 'mediawiki.mixins.less';
+
+/* Variants and Actions */
+.winkel-menu-dropdown {
+	direction: ltr;
+	float: left;
+	cursor: pointer;
+	position: relative;
+	line-height: 1.125em;
+
+	h3 {
+		color: @color-base--subtle;
+		position: relative;
+		display: block;
+		.box-sizing( border-box );
+		// `padding-top` needs to scale with font-size.
+		padding-top: 0.75em;
+		padding-left: 8px;
+		padding-right: unit( 24 / @font-size-tabs / @font-size-browser, em );
+		font-size: @font-size-tabs;
+		font-weight: normal;
+
+		&:after {
+			content: '';
+			.background-image-svg( 'images/arrow-down.svg', 'images/arrow-down.png' );
+			background-position: 100% 50%;
+			background-repeat: no-repeat;
+			position: absolute;
+			top: 0.5em;
+			right: 8px;
+			bottom: 0;
+			width: unit( 16 / @font-size-tabs / @font-size-browser, em );
+		}
+
+		&:hover,
+		&:focus {
+			color: @color-base;
+
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+
+	// The menu itself.
+	.winkel-menu-content-list {
+		background-color: @background-color-base;
+		list-style: none none;
+		// Match the width of the dropdown "heading" (the tab)
+		min-width: 100%;
+		position: absolute;
+		top: 2em;
+		left: -@border-width-base;
+		margin: 0;
+		border: @border-width-base @border-style-base @border-color-base;
+		border-top-width: 0;
+		padding: 0;
+		box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
+		text-align: left;
+		opacity: 0;
+		visibility: hidden;
+		.transition( opacity 100ms );
+		z-index: @z-index-menu;
+	}
+
+	&:hover .winkel-menu-content-list {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	// This is in a separate block, so that browsers supporting :hover but not :checked still apply the rule above
+	// Support: IE8
+	.winkel-menu-checkbox:checked ~ .winkel-menu-content .winkel-menu-content-list {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	li {
+		padding: 0;
+		margin: 0;
+		text-align: left;
+		line-height: 1em;
+
+		a {
+			color: @color-link;
+			display: block;
+			padding: 0.625em;
+			white-space: nowrap;
+			cursor: pointer;
+			font-size: @font-size-tabs;
+		}
+	}
+
+	.selected a,
+	.selected a:visited {
+		color: @color-link-selected;
+		text-decoration: none;
+	}
+}
+
+#mw-head .winkel-menu-dropdown h3 {
+	// Tab separator: Outer end (right in LTR) border of "Actions" menu.
+	float: left;
+	height: 2.5em;
+	margin: 0;
+	padding-right: unit( 24 / @font-size-tabs / @font-size-browser, em );
+}
+
+// Invisible checkbox covering the dropdown menu handle
+.winkel-menu-checkbox {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: @z-index-menu-checkbox;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	display: none;
+
+	:not( :checked ) > & {
+		// When the browser supports :checked, display it
+		display: block;
+	}
+
+	&:checked + h3:after {
+		transform: scaleY( -1 );
+	}
+
+	&:focus + h3 {
+		// Simulate browser focus ring
+		outline: dotted 1px; // Firefox style
+		outline: auto -webkit-focus-ring-color; // Webkit style
+	}
+}

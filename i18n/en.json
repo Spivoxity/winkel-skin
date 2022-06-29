@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"skinname-winkel": "Winkel",
+	"winkel-skin-desc": "Modern version of MonoBook with fresh look and many usability improvements",
+	"prefs-winkel-enable-winkel-1-label": "Use Legacy Winkel",
+	"prefs-winkel-enable-winkel-1-help": "Over the next few years, we will be gradually updating the Winkel skin. Legacy Winkel will allow you to view the old version of Winkel (as of December 2019). To learn more about the updates, go to our [[mw:Reading/Web/Desktop_Improvements|project page]].",
+	"winkel-opt-out": "Switch to old look",
+	"winkel-opt-out-tooltip": "Change your settings to go back to the old look of the skin (legacy Winkel)",
+	"winkel.css": "/* All CSS here will be loaded for users of the Winkel skin */",
+	"winkel.js": "/* All JavaScript here will be loaded for users of the Winkel skin */",
+	"winkel-action-toggle-sidebar": "Toggle sidebar",
+	"winkel-action-addsection": "Add topic",
+	"winkel-action-delete": "Delete",
+	"winkel-action-move": "Move",
+	"winkel-action-protect": "Protect",
+	"winkel-action-undelete": "Undelete",
+	"winkel-action-unprotect": "Change protection",
+	"winkel-view-create": "Create",
+	"winkel-view-edit": "Edit",
+	"winkel-view-history": "View history",
+	"winkel-view-view": "Read",
+	"winkel-view-viewsource": "View source",
+	"winkel-jumptonavigation": "Jump to navigation",
+	"winkel-jumptosearch": "Jump to search",
+	"winkel-more-actions": "More"
+}

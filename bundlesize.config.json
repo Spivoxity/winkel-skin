@@ -1,0 +1,22 @@
+[
+	{
+		"resourceModule": "skins.winkel.styles.legacy",
+		"maxSize": "7.8 kB"
+	},
+	{
+		"resourceModule": "skins.winkel.styles",
+		"maxSize": "8.5 kB"
+	},
+	{
+		"resourceModule": "skins.winkel.icons",
+		"maxSize": "0.6 kB"
+	},
+	{
+		"resourceModule": "skins.winkel.styles.responsive",
+		"maxSize": "0.6 kB"
+	},
+	{
+		"resourceModule": "skins.winkel.legacy.js",
+		"maxSize": "1.7 kB"
+	}
+]
