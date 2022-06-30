@@ -46,18 +46,6 @@ class WinkelTemplate extends BaseTemplate {
 	private const MENU_TYPE_DROPDOWN = 2;
 	private const MENU_TYPE_PORTAL = 3;
 
-	/**
-	 * T243281: Code used to track clicks to opt-out link.
-	 *
-	 * The "wkl" substring is used to describe the newest "Winkel" (non-legacy)
-	 * feature. The "w" describes the web platform. The "1" describes the version
-	 * of the feature.
-	 *
-	 * @see https://wikitech.wikimedia.org/wiki/Provenance
-	 * @var string
-	 */
-	private const OPT_OUT_LINK_TRACKING_CODE = 'wklw1';
-
 	/** @var TemplateParser */
 	private $templateParser;
 	/** @var string File name of the root (master) template without folder path and extension */
@@ -157,10 +145,7 @@ class WinkelTemplate extends BaseTemplate {
 			'msg-sitetitle' => $skin->msg( 'sitetitle' )->text(),
 			'msg-sitesubtitle' => $skin->msg( 'sitesubtitle' )->text(),
 			'main-page-href' => $mainPageHref,
-
-			'data-sidebar' => $this->buildSidebar(),
-			'sidebar-visible' => $this->isSidebarVisible(),
-			'msg-winkel-action-toggle-sidebar' => $skin->msg( 'winkel-action-toggle-sidebar' )->text(),
+			'data-sidebar' => $this->buildSidebar()
 		] + $this->getMenuProps();
 
 		return $commonSkinData;
@@ -232,33 +217,6 @@ class WinkelTemplate extends BaseTemplate {
 		];
 
 		return $data;
-	}
-
-	/**
-	 * Determines wheather the initial state of sidebar is visible on not
-	 *
-	 * @return bool
-	 */
-	private function isSidebarVisible() {
-		$skin = $this->getSkin();
-		if ( $skin->getUser()->isLoggedIn() ) {
-			$userPrefSidebarState = $skin->getUser()->getOption(
-				Constants::PREF_KEY_SIDEBAR_VISIBLE
-			);
-
-			$defaultLoggedinSidebarState = $this->getConfig()->get(
-				Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER
-			);
-
-			// If the sidebar user preference has been set, return that value,
-			// if not, then the default sidebar state for logged-in users.
-			return ( $userPrefSidebarState !== null )
-				? (bool)$userPrefSidebarState
-				: $defaultLoggedinSidebarState;
-		}
-		return $this->getConfig()->get(
-			Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_ANONYMOUS_USER
-		);
 	}
 
 	/**

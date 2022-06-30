@@ -43,10 +43,10 @@
 	width: 100%;
 	.box-sizing( border-box );
 	border: @border-base;
-	border-radius: @border-radius-base;
+	border-radius: 8px;
 	// `padding-right` equals to `#searchbutton` width below.
 	padding: 0.4em @width-search-button 0.4em 0.4em;
-	.box-shadow( @boxShadowWidget );
+	box-shadow: 2px 2px 2px #888;
 	font-size: @font-size-search-input;
 	direction: ltr;
 	.transition( ~'border-color 250ms, box-shadow 250ms' );
@@ -57,15 +57,9 @@
 	// Support: Firefox.
 	-moz-appearance: textfield;
 
-	#simpleSearch:hover & {
-		border-color: @colorGray7;
-	}
-
 	&:focus,
 	#simpleSearch:hover &:focus {
 		outline: 0;
-		border-color: @colorProgressive;
-		.box-shadow( @boxShadowProgressiveFocus );
 	}
 
 	.mixin-placeholder( {
@@ -89,7 +83,6 @@
 	position: absolute;
 	top: @border-width-base;
 	bottom: @border-width-base;
-	// `@border-width-base * 2` is in regards to harmonize position start and end.
 	right: @border-width-base;
 	min-width: 24px;
 	width: @width-search-button;
