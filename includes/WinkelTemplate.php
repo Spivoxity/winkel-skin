@@ -62,7 +62,7 @@ class WinkelTemplate extends BaseTemplate {
 		parent::__construct( $config );
 
 		$this->templateParser = $templateParser;
-		$this->templateRoot = 'skin-legacy';
+		$this->templateRoot = 'skin';
 	}
 
 	/**
@@ -88,8 +88,7 @@ class WinkelTemplate extends BaseTemplate {
 
 	/**
 	 * @deprecated Please use Skin::getTemplateData instead
-	 * @return array Returns an array of data shared between Winkel and legacy
-	 * Winkel.
+	 * @return array Returns an array of data
 	 */
 	private function getSkinData() : array {
 		// @phan-suppress-next-line PhanUndeclaredMethod

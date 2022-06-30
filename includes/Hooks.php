@@ -175,7 +175,7 @@ class Hooks {
 			return;
 		}
 
-		$bodyAttrs['class'] .= ' skin-winkel-legacy';
+		$bodyAttrs['class'] .= ' skin-winkel';
 	}
 
 	/**
