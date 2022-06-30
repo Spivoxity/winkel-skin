@@ -39,7 +39,7 @@
 	},
 	"@note": "When modifying skins.winkel.styles definition, make sure the installer still works",
 	"ResourceModules": {
-		"skins.winkel.styles.legacy": {
+		"skins.winkel.styles": {
 			"class": "ResourceLoaderSkinModule",
 			"features": [ "normalize", "elements", "content", "interface", "logo", "legacy" ],
 			"targets": [
@@ -71,20 +71,8 @@
 		"skins.winkel.js": {
 			"packageFiles": [
 				"resources/skins.winkel.js/skin.js",
-				"resources/skins.winkel.js/sidebar.js",
-				"resources/skins.winkel.legacy.js/collapsibleTabs.js",
-				"resources/skins.winkel.legacy.js/winkel.js"
-			],
-			"dependencies": [
-				"mediawiki.util",
-				"mediawiki.page.ready"
-			]
-		},
-		"skins.winkel.legacy.js": {
-			"packageFiles": [
-				"resources/skins.winkel.legacy.js/skin-legacy.js",
-				"resources/skins.winkel.legacy.js/collapsibleTabs.js",
-				"resources/skins.winkel.legacy.js/winkel.js"
+				"resources/skins.winkel.js/collapsibleTabs.js",
+				"resources/skins.winkel.js/winkel.js"
 			],
 			"dependencies": [
 				"mediawiki.util"

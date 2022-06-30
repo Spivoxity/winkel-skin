@@ -44,8 +44,8 @@ class SkinWinkel extends SkinTemplate {
 	public function getDefaultModules() {
 		$modules = parent::getDefaultModules();
 
-		$modules['styles']['skin'][] = 'skins.winkel.styles.legacy';
-		$modules[Constants::SKIN_NAME] = 'skins.winkel.legacy.js';
+		$modules['styles']['skin'][] = 'skins.winkel.styles';
+		$modules[Constants::SKIN_NAME] = 'skins.winkel.js';
 
 		return $modules;
 	}
