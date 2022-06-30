@@ -46,15 +46,6 @@
 				"desktop",
 				"mobile"
 			],
-			"styles": [ "resources/skins.winkel.styles/skin-legacy.less" ]
-		},
-		"skins.winkel.styles": {
-			"class": "ResourceLoaderSkinModule",
-			"features": [ "normalize", "elements", "content", "interface", "legacy" ],
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"styles": [ "resources/skins.winkel.styles/skin.less" ]
 		},
 		"skins.winkel.icons": {
