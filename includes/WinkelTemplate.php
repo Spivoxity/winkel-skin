@@ -97,25 +97,11 @@ class WinkelTemplate extends BaseTemplate {
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
 
-		// Naming conventions for Mustache parameters.
-		//
-		// Value type (first segment):
-		// - Prefix "is" or "has" for boolean values.
-		// - Prefix "msg-" for interface message text.
-		// - Prefix "html-" for raw HTML.
-		// - Prefix "data-" for an array of template parameters that should be passed directly
-		//   to a template partial.
-		// - Prefix "array-" for lists of any values.
-		//
-		// Source of value (first or second segment)
-		// - Segment "page-" for data relating to the current page (e.g. Title, WikiPage, or OutputPage).
-		// - Segment "hook-" for any thing generated from a hook.
-		//   It should be followed by the name of the hook in hyphenated lowercase.
-		//
-		// Conditionally used values must use null to indicate absence (not false or '').
 		$mainPageHref = Skin::makeMainPageUrl();
 		// From Skin::getNewtalks(). Always returns string, cast to null if empty.
 		$newTalksHtml = $skin->getNewtalks() ?: null;
+
+		$out->addStyle("Winkel/google-fonts.css");
 
 		// @phan-suppress-next-line PhanUndeclaredMethod
 		$commonSkinData = $skin->getTemplateData() + [
